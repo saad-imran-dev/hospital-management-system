@@ -6,7 +6,6 @@ const theme = createTheme({
             'Inter',
             'sans-serif',
         ].join(','),
-        fontWeight: 500,
     }
 })
 

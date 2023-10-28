@@ -6,9 +6,8 @@ import { theme } from './constants'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <ThemeProvider theme={theme}> */}
-    <App />
-    <p>Hello</p>
-    {/* </ThemeProvider> */}
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
 )
