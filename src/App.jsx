@@ -1,10 +1,16 @@
-import { Typography } from '@mui/material'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Departments, PatientList, Payment, RegisterPatient } from './pages'
 
 function App() {
   return (
-    <>
-      <Typography>Hello Boss</Typography>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/opd/' element={<RegisterPatient />} />
+        <Route path='/opd/department/' element={<Departments />} />
+        <Route path='/opd/patientlist/' element={<PatientList />} />
+        <Route path='/opd/payment/' element={<Payment />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
