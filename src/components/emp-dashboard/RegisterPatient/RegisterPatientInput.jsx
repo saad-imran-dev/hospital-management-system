@@ -1,24 +1,6 @@
 import { Box, Button, FormControl, FormControlLabel, FormLabel, Input, InputLabel, Radio, RadioGroup, TextField, } from '@mui/material'
-import { IMaskInput } from 'react-imask'
 import React from 'react'
-
-const PhoneMask = React.forwardRef(function TextMaskCustom(props, ref) {
-    const { onChange, ...other } = props;
-    return (
-        <IMaskInput
-            {...other}
-            mask="0000-0000000"
-            placeholder="0000-0000000"
-            definitions={{
-                '#': /[1-9]/,
-            }}
-            inputRef={ref}
-            onAccept={(value) => onChange({ target: { name: props.name, value } })}
-            overwrite
-        />
-    );
-});
-
+import PhoneMask from './PhoneMask'
 
 function RegisterPatientInput() {
     return (
@@ -36,7 +18,6 @@ function RegisterPatientInput() {
                     <RadioGroup
                         row
                         aria-labelledby="demo-radio-buttons-group-label"
-                        defaultValue="female"
                         name="radio-buttons-group"
                     >
                         <FormControlLabel value="female" control={<Radio />} label="Female" />
@@ -54,7 +35,7 @@ function RegisterPatientInput() {
             </Box>
 
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <TextField variant='standard' label='House Address' sx={{ width: '47%' }} />
+                <TextField variant='standard' label='Email' type='email' sx={{ width: '47%' }} />
 
                 <FormControl variant="standard" sx={{ width: '47%' }} >
                     <InputLabel htmlFor="formatted-text-mask-input">Phone</InputLabel>
@@ -67,6 +48,8 @@ function RegisterPatientInput() {
                     />
                 </FormControl>
             </Box>
+
+            <TextField variant='standard' label='House address' />
 
             <Button variant='contained' sx={{ width: 150 }}>Register</Button>
         </Box>
