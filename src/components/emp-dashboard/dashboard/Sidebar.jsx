@@ -2,7 +2,7 @@ import { Box, Button, Divider, Typography } from '@mui/material'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import doctor from './../../assets/doctor.avif'
+import doctor from './../../../assets/doctor.avif'
 import { Link } from 'react-router-dom'
 
 function Sidebar() {

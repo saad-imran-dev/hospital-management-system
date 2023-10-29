@@ -1,11 +1,13 @@
 import React from 'react'
-import { Dashboard } from '../../components'
-import { Typography } from '@mui/material'
+import { Dashboard, RegisterPatientInput } from '../../components'
+import { Box } from '@mui/material'
 
 function RegisterPatient() {
     return (
         <Dashboard>
-            <Typography>Register Patient</Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', p: 2 }}>
+                <RegisterPatientInput />
+            </Box>
         </Dashboard>
     )
 }

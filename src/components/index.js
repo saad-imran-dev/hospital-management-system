@@ -1,4 +1,5 @@
-import Sidebar from "./emp-dashboard/Sidebar";
-import Dashboard from "./emp-dashboard/Dashboard";
+import Sidebar from "./emp-dashboard/dashboard/Sidebar";
+import Dashboard from "./emp-dashboard/dashboard/Dashboard";
+import RegisterPatientInput from "./emp-dashboard/RegisterPatient/RegisterPatientInput";
 
-export { Sidebar, Dashboard }
+export { Sidebar, Dashboard, RegisterPatientInput }
