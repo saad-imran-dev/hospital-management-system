@@ -1,20 +1,16 @@
-import { Typography } from '@mui/material'
-import Top from './homepage/top'
-import Nav from './homepage/nav'
-import Card from './homepage/Cards'
-import Middle from './homepage/middle'
-import Services from './homepage/services'
-import Footer from './homepage/footer'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Departments, PatientList, Payment, RegisterPatient } from './pages'
+
 function App() {
   return (
-    <>
-    <Top />
-    <Nav />
-    <Card />
-    <Middle />
-    <Services />
-    <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/opd/' element={<RegisterPatient />} />
+        <Route path='/opd/department/' element={<Departments />} />
+        <Route path='/opd/patientlist/' element={<PatientList />} />
+        <Route path='/opd/payment/' element={<Payment />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
