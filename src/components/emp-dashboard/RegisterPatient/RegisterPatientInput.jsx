@@ -1,5 +1,24 @@
-import { Box, Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField, } from '@mui/material'
+import { Box, Button, FormControl, FormControlLabel, FormLabel, Input, InputLabel, Radio, RadioGroup, TextField, } from '@mui/material'
+import { IMaskInput } from 'react-imask'
 import React from 'react'
+
+const PhoneMask = React.forwardRef(function TextMaskCustom(props, ref) {
+    const { onChange, ...other } = props;
+    return (
+        <IMaskInput
+            {...other}
+            mask="0000-0000000"
+            placeholder="0000-0000000"
+            definitions={{
+                '#': /[1-9]/,
+            }}
+            inputRef={ref}
+            onAccept={(value) => onChange({ target: { name: props.name, value } })}
+            overwrite
+        />
+    );
+});
+
 
 function RegisterPatientInput() {
     return (
@@ -30,13 +49,23 @@ function RegisterPatientInput() {
                     label='Date Of Birth'
                     type='date'
                     InputLabelProps={{ shrink: true }}
-                    sx={{ width: '30%' }} 
+                    sx={{ width: '30%' }}
                 />
             </Box>
 
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <TextField variant='standard' label='House Address' sx={{ width: '47%' }} />
-                <TextField variant='standard' label='Phone number' mask="0399-9999999" sx={{ width: '47%' }} />
+
+                <FormControl variant="standard" sx={{ width: '47%' }} >
+                    <InputLabel htmlFor="formatted-text-mask-input">Phone</InputLabel>
+                    <Input
+                        // value={values.textmask}
+                        // onChange={handleChange}
+                        name="Phone"
+                        id="phone"
+                        inputComponent={PhoneMask}
+                    />
+                </FormControl>
             </Box>
 
             <Button variant='contained' sx={{ width: 150 }}>Register</Button>
