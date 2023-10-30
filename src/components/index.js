@@ -19,5 +19,5 @@ export {
     Middle,
     Nav,
     Services,
-    Top
+    Top,
 }
