@@ -6,7 +6,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Homepage />} />
-        <Route path = '/opd/auth' element = {<LoginEmployee />}/>
+        <Route path='/emp/login' element={<LoginEmployee />}/>
         <Route path='/opd/' element={<RegisterPatient />} />
         <Route path='/opd/department/' element={<Departments />} />
         <Route path='/opd/patientlist/' element={<PatientList />} />
