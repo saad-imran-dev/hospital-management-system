@@ -1,7 +1,8 @@
-import Sidebar from "./emp-dashboard/dashboard/Sidebar";
-import Dashboard from "./emp-dashboard/dashboard/Dashboard";
-import RegisterPatientInput from "./emp-dashboard/RegisterPatient/RegisterPatientInput";
-import DepartmentCard from "./emp-dashboard/Departments/DepartmentCard";
+import Sidebar from "./opd-dashboard/dashboard/Sidebar";
+import Dashboard from "./opd-dashboard/dashboard/Dashboard";
+import RegisterPatientInput from "./opd-dashboard/RegisterPatient/RegisterPatientInput";
+import DepartmentCard from "./opd-dashboard/Departments/DepartmentCard";
+import DoctorTable from "./opd-dashboard/Departments/DoctorTable";
 import Cards from './homepage/Cards'
 import Footer from './homepage/footer'
 import Middle from './homepage/middle'
@@ -19,5 +20,6 @@ export {
     Middle,
     Nav,
     Services,
-    Top,
+    Top, 
+    DoctorTable,
 }

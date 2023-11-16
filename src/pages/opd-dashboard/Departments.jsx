@@ -4,27 +4,17 @@ import { Box, Grid, Typography } from '@mui/material'
 
 const departs = [
     {
-        name: "Cardiology",
+        name: "general",
         available: 10,
         doctors: 25
     },
     {
-        name: "OPD",
+        name: "cardiology",
         available: 10,
         doctors: 25
     },
     {
-        name: "Dermatologist",
-        available: 10,
-        doctors: 25
-    },
-    {
-        name: "Cardiology",
-        available: 10,
-        doctors: 25
-    },
-    {
-        name: "Cardiology",
+        name: "dermatology",
         available: 10,
         doctors: 25
     },
