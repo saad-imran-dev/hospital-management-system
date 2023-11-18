@@ -1,6 +1,7 @@
 import { Box, Button, FormControl, FormControlLabel, FormLabel, Input, InputLabel, Radio, RadioGroup, TextField, } from '@mui/material'
 import React from 'react'
 import PhoneMask from './PhoneMask'
+import CNICMask from './CNICMask'
 
 function RegisterPatientInput() {
     return (
@@ -35,7 +36,16 @@ function RegisterPatientInput() {
             </Box>
 
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <TextField variant='standard' label='Email' type='email' sx={{ width: '47%' }} />
+                <FormControl variant="standard" sx={{ width: '47%' }} >
+                    <InputLabel htmlFor="formatted-text-mask-input">CNIC</InputLabel>
+                    <Input
+                        // value={values.textmask}
+                        // onChange={handleChange}
+                        name="CNIC"
+                        id="CNIC"
+                        inputComponent={CNICMask}
+                    />
+                </FormControl>
 
                 <FormControl variant="standard" sx={{ width: '47%' }} >
                     <InputLabel htmlFor="formatted-text-mask-input">Phone</InputLabel>
@@ -48,6 +58,8 @@ function RegisterPatientInput() {
                     />
                 </FormControl>
             </Box>
+
+            <TextField variant='standard' label='Email' />
 
             <TextField variant='standard' label='House address' />
 

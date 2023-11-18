@@ -3,6 +3,9 @@ import Dashboard from "./opd-dashboard/dashboard/Dashboard";
 import RegisterPatientInput from "./opd-dashboard/RegisterPatient/RegisterPatientInput";
 import DepartmentCard from "./opd-dashboard/Departments/DepartmentCard";
 import DoctorTable from "./opd-dashboard/Departments/DoctorTable";
+import DoctorInfoTable from "./opd-dashboard/DoctorInfo/DoctorInfoTable";
+import AppointmentModal from "./opd-dashboard/DoctorInfo/AppointmentModal";
+import ConfirmModal from "./opd-dashboard/DoctorInfo/ConfirmModal";
 import Cards from './homepage/Cards'
 import Footer from './homepage/footer'
 import Middle from './homepage/middle'
@@ -21,5 +24,8 @@ export {
     Nav,
     Services,
     Top, 
+    DoctorInfoTable,
     DoctorTable,
+    AppointmentModal,
+    ConfirmModal,
 }
