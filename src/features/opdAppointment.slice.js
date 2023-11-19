@@ -9,7 +9,7 @@ const initialState = {
         open: false,
         name: '',
         phone: '',
-        email: '',
+        doctor: '',
         time: '',
     },
 }
@@ -27,17 +27,20 @@ const opdAppointmentSlice = createSlice({
         setCNIC(state, action) {
             state.input.cnic = action.payload
         },
-        openReviewModal(state) {
+        openReviewModal(state, action) {
+            state.review.name = action.payload.name
+            state.review.phone = action.payload.phone
+            state.review.doctor = action.payload.doctor
+            state.review.cnic = state.input.cnic
+
+            state.input.open = false
+            state.input.cnic = ''
+
             state.review.open = true
         },
         closeReviewModal(state) {
             state.review.open = false
         },
-        setUserDetail(state, action) {
-            state.review.name = action.payload.name
-            state.review.phone = action.payload.phone
-            state.review.email = action.payload.email
-        }, 
         setTime(state, action) {
             state.review.time = action.payload
         },

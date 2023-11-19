@@ -12,10 +12,12 @@ function Doctor() {
   function handleSubmit() {
     const txt = appointment.input.cnic.split('-')
     if (txt.length == 3 && txt[0].length == 5 && txt[1].length == 7 && txt[2].length == 1) {
-      dispatch(setUserDetail({ name: 'Muhammad Saad', email: 'saad.imran.vohra@gmail.com', phone: '0330-2459543' }))
-      dispatch(setCNIC(''))
-      dispatch(closeInputModal())
-      dispatch(openReviewModal())
+      dispatch(openReviewModal({
+        name: 'Muhammad Saad',
+        email: 'saad.imran.vohra@gmail.com',
+        phone: '0330-2459543',
+        doctor: name
+      }))
     }
   }
 

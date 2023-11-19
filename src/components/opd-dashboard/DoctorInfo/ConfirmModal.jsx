@@ -31,7 +31,7 @@ function ConfirmModal({ handleConfirm }) {
                 <Typography id="modal-modal-description" sx={{ mt: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
                     <TextField label='Name' value={appointment.review.name} />
                     <TextField label='Phone' value={appointment.review.phone} />
-                    <TextField label='Email' value={appointment.review.email} />
+                    <TextField label='Doctor' value={appointment.review.doctor} />
                     <TextField label='Time' value={appointment.review.time} />
                     <Button color='error' variant='contained' onClick={handleConfirm} sx={{ ml: 'auto' }} >Confirm</Button>
                 </Typography>
