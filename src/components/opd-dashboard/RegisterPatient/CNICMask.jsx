@@ -7,7 +7,6 @@ const CNICMask = React.forwardRef(function TextMaskCustom(props, ref) {
         <IMaskInput
             {...other}
             mask="00000-0000000-0"
-            placeholder="00000-0000000-0"
             definitions={{
                 '#': /[1-9]/,
             }}

@@ -25,7 +25,7 @@ function Sidebar() {
                 <Button variant='contained' color='white' disableElevation sx={{ width: '100%' }}>Register Patient</Button>
             </Link>
 
-            <Link to={'/opd/patientlist'} style={{ width: '100%', color: 'black' }}>
+            <Link to={'/opd/patient'} style={{ width: '100%', color: 'black' }}>
                 <Button variant='contained' color='white' disableElevation sx={{ width: '100%' }}>Patient List</Button>
             </Link>
 

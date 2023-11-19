@@ -18,11 +18,13 @@ const opdAppointmentSlice = createSlice({
     name: 'OPD_APPOINTMENT',
     initialState,
     reducers: {
-        openInputModal(state) {
+        openInputModal(state, action) {
+            state.review.time = action.payload
             state.input.open = true
         },
         closeInputModal(state) {
             state.input.open = false
+            state.input.cnic = ''
         },
         setCNIC(state, action) {
             state.input.cnic = action.payload
@@ -41,9 +43,6 @@ const opdAppointmentSlice = createSlice({
         closeReviewModal(state) {
             state.review.open = false
         },
-        setTime(state, action) {
-            state.review.time = action.payload
-        },
     },
 })
 
@@ -54,7 +53,6 @@ export const {
     openReviewModal, 
     closeReviewModal, 
     setUserDetail,
-    setTime
 } = opdAppointmentSlice.actions
 
 export default opdAppointmentSlice.reducer

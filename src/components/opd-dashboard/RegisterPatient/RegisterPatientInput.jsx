@@ -70,6 +70,7 @@ function RegisterPatientInput({ patient, handleChange, handleRegister }) {
                         name="cnic"
                         value={patient.cnic}
                         id="cnic"
+                        placeholder="00000-0000000-0"
                         inputComponent={CNICMask}
                         onChange={handleChange}
                     />
@@ -80,6 +81,7 @@ function RegisterPatientInput({ patient, handleChange, handleRegister }) {
                     <Input
                         name="phone"
                         value={patient.phone}
+                        placeholder="0000-0000000"
                         id="phone"
                         inputComponent={PhoneMask}
                         onChange={handleChange}

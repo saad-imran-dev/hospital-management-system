@@ -1,7 +1,7 @@
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { openInputModal, setTime } from '../../../features/opdAppointment.slice';
+import { openInputModal } from '../../../features/opdAppointment.slice';
 
 function createData(timing, booked) {
     return { timing, booked };
@@ -50,10 +50,7 @@ function DoctorInfoTable() {
                                 <Button
                                     variant='contained'
                                     disabled={row.booked}
-                                    onClick={() => {
-                                        dispatch(setTime(row.timing))
-                                        dispatch(openInputModal())
-                                    }}
+                                    onClick={() => dispatch(openInputModal(row.timing))}
                                 >
                                     Continue
                                 </Button>

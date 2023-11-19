@@ -7,7 +7,6 @@ const PhoneMask = React.forwardRef(function TextMaskCustom(props, ref) {
         <IMaskInput
             {...other}
             mask="0000-0000000"
-            placeholder="0000-0000000"
             definitions={{
                 '#': /[1-9]/,
             }}

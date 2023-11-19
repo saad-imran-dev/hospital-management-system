@@ -20,7 +20,8 @@ function App() {
         <Route path='/opd/department/' element={<Departments />} />
         <Route path='/opd/department/:name' element={<DepartmentInfo />} />
         <Route path='/opd/doctor/:id' element={<DoctorInfo />} />
-        <Route path='/opd/patientlist/' element={<PatientList />} />
+        <Route path='/opd/patient/' element={<PatientList />} />
+        <Route path='/opd/patient/:cnic' element={<PatientList />} />
         <Route path='/opd/payment/' element={<Payment />} />
       </Routes>
     </BrowserRouter>

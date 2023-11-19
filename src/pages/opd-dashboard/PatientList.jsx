@@ -1,11 +1,14 @@
 import React from 'react'
-import { Dashboard } from '../../components'
-import { Typography } from '@mui/material'
+import { Dashboard, PatientTable } from '../../components'
+import { Divider, Typography } from '@mui/material'
 
 function PatientList() {
     return (
         <Dashboard>
-            <Typography>PatientList</Typography>
+            <Typography variant='h3'>Registered Patients</Typography>
+            <Divider sx={{ my: 2 }} />
+
+            <PatientTable />
         </Dashboard>
     )
 }

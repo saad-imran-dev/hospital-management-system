@@ -11,10 +11,7 @@ function AppointmentModal({ handleSubmit }) {
     return (
         <Modal
             open={appointment.input.open}
-            onClose={() => {
-                dispatch(setCNIC(''))
-                dispatch(closeInputModal())
-            }}
+            onClose={() => dispatch(closeInputModal())}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
