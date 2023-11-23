@@ -2,10 +2,10 @@ import React from 'react'
 import { Dashboard, PatientTable } from '../../components'
 import { Divider, Typography } from '@mui/material'
 
-function PatientList() {
+function PatientRecords() {
     return (
         <Dashboard>
-            <Typography variant='h3'>Registered Patients</Typography>
+            <Typography variant='h3'>Patient Records</Typography>
             <Divider sx={{ my: 2 }} />
 
             <PatientTable />
@@ -13,4 +13,4 @@ function PatientList() {
     )
 }
 
-export default PatientList
+export default PatientRecords

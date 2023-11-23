@@ -7,7 +7,8 @@ import {
   RegisterPatient,
   LoginEmployee,
   DepartmentInfo,
-  DoctorInfo
+  DoctorInfo,
+  Patient
 } from './pages'
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
         <Route path='/opd/department/:name' element={<DepartmentInfo />} />
         <Route path='/opd/doctor/:id' element={<DoctorInfo />} />
         <Route path='/opd/patient/' element={<PatientList />} />
-        <Route path='/opd/patient/:cnic' element={<PatientList />} />
+        <Route path='/opd/patient/:cnic' element={<Patient />} />
         <Route path='/opd/payment/' element={<Payment />} />
       </Routes>
     </BrowserRouter>
