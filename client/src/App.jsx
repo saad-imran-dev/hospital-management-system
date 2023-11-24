@@ -8,7 +8,11 @@ import {
   LoginEmployee,
   DepartmentInfo,
   DoctorInfo,
-  Patient
+  Patient,
+  Welcome,
+  PatientInfo,
+  PatientHistory,
+  Prescription
 } from './pages'
 
 function App() {
@@ -24,6 +28,10 @@ function App() {
         <Route path='/opd/patient/' element={<PatientList />} />
         <Route path='/opd/patient/:cnic' element={<Patient />} />
         <Route path='/opd/payment/' element={<Payment />} />
+        <Route path='/doctor/' element={<Welcome />} />
+        <Route path='/doctor/patient/info/:id' element={<PatientInfo />} />
+        <Route path='/doctor/patient/history/:id' element={<PatientHistory />} />
+        <Route path='/doctor/patient/prescription/:id' element={<Prescription />} />
       </Routes>
     </BrowserRouter>
   )

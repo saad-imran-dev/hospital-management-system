@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dashboard, DepartmentCard } from '../../components'
+import { DashboardOpd, DepartmentCard } from '../../components'
 import { Box, Grid, Typography } from '@mui/material'
 
 const departs = [
@@ -22,7 +22,7 @@ const departs = [
 
 function Departments() {
     return (
-        <Dashboard>
+        <DashboardOpd>
             <Box sx={{
                 display: 'grid',
                 gridTemplateColumns: "repeat(auto-fill, 300px)",
@@ -35,7 +35,7 @@ function Departments() {
                     )
                 })}
             </Box>
-        </Dashboard>
+        </DashboardOpd>
     )
 }
 

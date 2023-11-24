@@ -1,5 +1,5 @@
 import Sidebar from "./opd-dashboard/dashboard/Sidebar";
-import Dashboard from "./opd-dashboard/dashboard/Dashboard";
+import DashboardOpd from "./opd-dashboard/dashboard/DashboardOpd";
 import RegisterPatientInput from "./opd-dashboard/RegisterPatient/RegisterPatientInput";
 import DepartmentCard from "./opd-dashboard/Departments/DepartmentCard";
 import DoctorTable from "./opd-dashboard/Departments/DoctorTable";
@@ -16,10 +16,11 @@ import Middle from './homepage/middle'
 import Nav from './homepage/nav'
 import Services from './homepage/services'
 import Top from "./homepage/top";
+import DashboardDoctor from './doctor-dashboard/Dashboard/DashboardDoctor'
 
 export {
     Sidebar,
-    Dashboard,
+    DashboardOpd,
     RegisterPatientInput,
     DepartmentCard,
     Cards,
@@ -35,5 +36,6 @@ export {
     PatientTable,
     ItemsTable, 
     SearchBar,
-    PaidModal
+    PaidModal,
+    DashboardDoctor,
 }

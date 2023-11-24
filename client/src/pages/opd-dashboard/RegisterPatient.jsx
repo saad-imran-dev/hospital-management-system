@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Dashboard, RegisterPatientInput } from '../../components'
+import { DashboardOpd, RegisterPatientInput } from '../../components'
 import { Box, Typography } from '@mui/material'
 
 function RegisterPatient() {
@@ -37,7 +37,7 @@ function RegisterPatient() {
     }
 
     return (
-        <Dashboard>
+        <DashboardOpd>
             <Box sx={{
                 display: 'flex',
                 alignItems: 'center',
@@ -50,7 +50,7 @@ function RegisterPatient() {
                 <Typography variant='h3' mr={'auto'}>Patient Registration</Typography>
                 <RegisterPatientInput patient={patient} handleChange={handleChange} handleRegister={handleRegister} />
             </Box>
-        </Dashboard>
+        </DashboardOpd>
     )
 }
 

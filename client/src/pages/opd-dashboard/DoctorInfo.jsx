@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppointmentModal, ConfirmModal, Dashboard, DoctorInfoTable } from '../../components'
+import { AppointmentModal, ConfirmModal, DashboardOpd, DoctorInfoTable } from '../../components'
 import { Typography, Divider } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { closeInputModal, closeReviewModal, openReviewModal, setCNIC, setUserDetail } from '../../features/opdAppointment.slice'
@@ -26,14 +26,14 @@ function Doctor() {
   }
 
   return (
-    <Dashboard>
+    <DashboardOpd>
       <Typography variant='h3' sx={{ textTransform: 'capitalize' }}>{name}</Typography>
       <Divider sx={{ my: 2.5 }} />
 
       <DoctorInfoTable />
       <AppointmentModal handleSubmit={handleSubmit} />
       <ConfirmModal handleConfirm={handleConfirm} />
-    </Dashboard>
+    </DashboardOpd>
   )
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Dashboard, ItemsTable, PaidModal, SearchBar } from '../../components'
+import { DashboardOpd, ItemsTable, PaidModal, SearchBar } from '../../components'
 import { Divider, Typography } from '@mui/material'
 
 function Payment() {
@@ -7,14 +7,14 @@ function Payment() {
     const [cnic, setCnic] = useState('')
 
     return (
-        <Dashboard>
+        <DashboardOpd>
             <Typography variant='h3'>Payment</Typography>
             <Divider sx={{ my: 2 }} />
 
             <SearchBar cnic={cnic} handleChange={(e) => setCnic(e.target.value)} />
             <ItemsTable handlePay={() => setOpen(true)} />
             <PaidModal open={open} handleClose={() => setOpen(false)} />
-        </Dashboard>
+        </DashboardOpd>
     )
 }
 

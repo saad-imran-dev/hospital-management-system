@@ -1,15 +1,15 @@
 import React from 'react'
-import { Dashboard, PatientTable } from '../../components'
+import { DashboardOpd, PatientTable } from '../../components'
 import { Divider, Typography } from '@mui/material'
 
 function PatientRecords() {
     return (
-        <Dashboard>
+        <DashboardOpd>
             <Typography variant='h3'>Patient Records</Typography>
             <Divider sx={{ my: 2 }} />
 
             <PatientTable />
-        </Dashboard>
+        </DashboardOpd>
     )
 }
 

@@ -7,6 +7,10 @@ import Homepage from "./home-page/Homepage";
 import LoginEmployee from "./emp-auth/LoginEmployee";
 import DoctorInfo from "./opd-dashboard/DoctorInfo";
 import Patient from "./opd-dashboard/Patient";
+import Welcome from "./doctor-dashboard/Welcome";
+import PatientHistory from "./doctor-dashboard/PatientHistory";
+import PatientInfo from "./doctor-dashboard/PatientInfo";
+import Prescription from "./doctor-dashboard/Prescription"
 
 export {
     RegisterPatient,
@@ -18,4 +22,8 @@ export {
     LoginEmployee,
     DoctorInfo,
     Patient,
+    Welcome,
+    PatientHistory,
+    PatientInfo,
+    Prescription,
 }

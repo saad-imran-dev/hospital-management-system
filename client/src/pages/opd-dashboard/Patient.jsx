@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import PatientInfo from '../../components/opd-dashboard/Patient/PatientInfo'
-import { Dashboard } from '../../components'
+import { DashboardOpd } from '../../components'
 
 function Patient() {
     const [patient, setPatient] = useState({
@@ -16,7 +16,7 @@ function Patient() {
     })
 
     return (
-        <Dashboard>
+        <DashboardOpd>
             <Box sx={{
                 display: 'flex',
                 alignItems: 'center',
@@ -32,7 +32,7 @@ function Patient() {
                     [e.target.name]: e.target.value
                 }))} />
             </Box>
-        </Dashboard>
+        </DashboardOpd>
     )
 }
 
