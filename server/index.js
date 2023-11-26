@@ -1,9 +1,14 @@
 const db = require('./database/database.js')
-const middleware = require('./middleware/middleware.js')
+
 const express = require('express')
 const session = require('express-session')
 
+//importing routes
+
+const patientRoute = require('./routes/patientRouter.js')
+
 const jwt = require('jsonwebtoken')
+const { doctorRouter } = require('./routes/doctorRouter.js')
 
 const PORT = 5000;
 
@@ -144,11 +149,9 @@ app.post('/auth/patient' , async (req,res) => {
         res.status(500).send('Server side error')
     }
 })
-//using middlewares
-app.use('/admin/*',middleware.adminMiddleware);
-app.use('/opd/*',middleware.opdMiddleware);
-app.use('/patient/*',middleware.patientMiddleware)
-app.use('/doctor/*',middleware.doctorMiddleware)
+
+app.use('/patient',patientRoute.patientRouter)
+app.use('/doctor' , doctorRouter)
 
 app.listen(PORT , () => {
     console.log('Server is listening on port 5000')
