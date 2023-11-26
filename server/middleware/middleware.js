@@ -14,7 +14,10 @@ function adminMiddleware(req,res,next) {
 
 }
 function doctorMiddleware(req,res,next) {
-    if (req.session.authorization){
+    if(req.path === '/'){
+        next()
+    }
+    else if (req.session.authorization){
         const token = req.session.authorization['accessToken']
         jwt.verify(token, "doctorSecret", (_,user) => {
             req.user = user;
@@ -40,7 +43,10 @@ function opdMiddleware(req,res,next) {
 
 }
 function patientMiddleware(req,res,next) {
-    if (req.session.authorization){
+    if (req.path === '/'){
+        next()
+    }
+    else if (req.session.authorization){
         const token = req.session.authorization['accessToken']
         jwt.verify(token, "patientSecret", (_,user) => {
             req.user = user;
