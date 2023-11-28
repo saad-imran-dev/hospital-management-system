@@ -4,7 +4,7 @@ import { Facebook, LinkedIn, YouTube } from '@mui/icons-material';
 
 const Footer = () => {
   return (
-    <div style={{ backgroundColor: 'rgb(31,43,108)', color: 'white', padding: '30px 0', marginTop:'100px' }}>
+    <div style={{ backgroundColor: 'black', color: 'white', padding: '30px 0', marginTop:'100px' }}>
       <Container>
         <Grid container spacing={4}>
           <Grid item xs={12} sm={6} md={4} lg={3}>
