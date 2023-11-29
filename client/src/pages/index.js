@@ -7,12 +7,25 @@ import Homepage from "./home-page/Homepage";
 import LoginEmployee from "./emp-auth/LoginEmployee";
 import DoctorInfo from "./opd-dashboard/DoctorInfo";
 import Patient from "./opd-dashboard/Patient";
-import Welcome from "./doctor-dashboard/Welcome";
-import PatientHistory from "./doctor-dashboard/PatientHistory";
-import PatientInfo from "./doctor-dashboard/PatientInfo";
-import Prescription from "./doctor-dashboard/Prescription"
-
+import Patientboard from "./paitient-dashboard/patientdashboard";
+import Patientappoint from "./paitient-dashboard/patient-appointment";
+import Patientlog from "./paitient-dashboard/patient-login";
+import Patienthistory from "./paitient-dashboard/patient-app-history";
+import Patientprescript from "./paitient-dashboard/patient-prescription";
+import About from "./home-page/About";
+import Doctorpage from "./home-page/Doctorpage";
+import PatientSignUp from './paitient-dashboard/patientSignup';
+import Doctordashboard from './doctor-dashboard/board';
+import Writeprescription from './doctor-dashboard/writePrescript';
+import Seepatienthistory from './doctor-dashboard/see_pat_history';
+import DoctorLogin from './doctor-dashboard/doc-login';
 export {
+    DoctorLogin,
+    About,
+    Doctorpage,
+    Doctordashboard,
+    Writeprescription,
+    Seepatienthistory,
     RegisterPatient,
     Departments,
     DepartmentInfo,
@@ -22,8 +35,10 @@ export {
     LoginEmployee,
     DoctorInfo,
     Patient,
-    Welcome,
-    PatientHistory,
-    PatientInfo,
-    Prescription,
+    Patientboard,
+    Patientappoint,
+    Patientlog,
+    Patientprescript,
+    Patienthistory,
+    PatientSignUp,
 }

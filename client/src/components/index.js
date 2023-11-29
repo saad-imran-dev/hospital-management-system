@@ -16,12 +16,26 @@ import Middle from './homepage/middle'
 import Nav from './homepage/nav'
 import Services from './homepage/services'
 import Top from "./homepage/top";
-import DashboardDoctor from './doctor-dashboard/Dashboard/DashboardDoctor'
-
+import About_us from './homepage/About_us';
+import Doctor_page from './homepage/doctors_page';
+import Patientdashboard from "./patient-dashboard/dashboard/patient-dashboard";
+import Patientlogin from './patient-dashboard/patient-login/patient-login'
+import Patientprescription from './patient-dashboard/patient-prescription/patient-prescription'
+import Patientappointment from './patient-dashboard/patient-appointment/patient-appointment'
+import Patientapphistory from './patient-dashboard/patient-app-history/patient-appointment-history'
+import PatientSignUp from './patient-dashboard/patient-signup/patient-signup'
+import Doctordashboard from './doctor-dashboard/dashboard/Doctordashboard'
+import Seepatienthistory from './doctor-dashboard/seepatienthistory/seepatienthistory'
+import Writeprescription from './doctor-dashboard/writeprescription/writeprescription'
+import DoctorLogin from './doctor-dashboard/doctor-login/doc-login'
 export {
+    DoctorLogin,
     Sidebar,
     DashboardOpd,
     RegisterPatientInput,
+    Doctordashboard,
+    Seepatienthistory,
+    Writeprescription,
     DepartmentCard,
     Cards,
     Footer,
@@ -29,6 +43,8 @@ export {
     Nav,
     Services,
     Top, 
+    About_us,
+    Doctor_page,
     DoctorInfoTable,
     DoctorTable,
     AppointmentModal,
@@ -37,5 +53,10 @@ export {
     ItemsTable, 
     SearchBar,
     PaidModal,
-    DashboardDoctor,
+    Patientdashboard,
+    Patientlogin,
+    Patientprescription,
+    Patientappointment,
+    Patientapphistory,
+    PatientSignUp,
 }
