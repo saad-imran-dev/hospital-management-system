@@ -13,7 +13,7 @@ async function dbQuery(query, params) {
     }
     try{
         const results = await client.query(query , params)
-        console.log(results)
+        // console.log(results)
         // await client.end()
         if (results){
             return results.rows

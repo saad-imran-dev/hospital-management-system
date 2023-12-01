@@ -2,156 +2,47 @@ const db = require('./database/database.js')
 
 const express = require('express')
 const session = require('express-session')
-
-//importing routes
-
-const patientRoute = require('./routes/patientRouter.js')
-
+const cors = require('cors')
+const swaggerUI = require("swagger-ui-express")
+const swaggerJSDoc = require("swagger-jsdoc")
 const jwt = require('jsonwebtoken')
+//importing routes
+const { patientRouter } = require('./routes/patientRouter.js')
 const { doctorRouter } = require('./routes/doctorRouter.js')
-
+const { authRouter } = require('./routes/authRoutes.js')
 const PORT = 5000;
 
+const options = {
+    definition : {
+        openapi : "3.0.0",
+        info : {
+            title : "Hospital System API",
+            version : "1.0.0",
+            description : "WP project API"
+        },
+        servers : [
+            {
+                url : "http://locahost::5000"
+            }
+        ]
+    },
+    apis : ["./routes/*.js"]
+}
+const specs = swaggerJSDoc(options)
 const app = express()
 app.use(session({secret : "fingerprint" , resave : true , saveUninitialized : true}));
 app.use(express.json())
-
-
+app.use(cors())
+app.use('/api-docs' , swaggerUI.serve , swaggerUI.setup(specs))
 app.get('/' , (req,res) => {
     res.send('<h1>Hello world<h1/>')
 })
 
-//login admin
-app.post('/auth/admin' , async (req,res) => {
-    const email = req.body.email
-    const password = req.body.password
 
-    const query = "SELECT * FROM ADMIN_TABLE WHERE EMAIL = $1::TEXT AND PASS = $2::TEXT"
-    const params = [email , password]
-    try {
-        const results = await db.dbQuery(query , params)
-        if (results){
-            if(results.length > 0){
-                let accessToken = jwt.sign(
-                    {data : password},
-                    'adminSecret',
-                    )
-                req.session.authorization = {
-                    accessToken,
-                    email
-                }
-                res.status(200).send("Successfully Logged in");
-            }
-            else{
-                res.status(401).send("Invalid credentials. Kindly retry");
-            }
-        }
-    }
-    catch(error){
-        console.log(error)
-        res.status(500).send('Server side error')
-    }
-})
 
-//login opd
-app.post('/auth/opd' , async (req,res) => {
-    const email = req.body.email
-    const password = req.body.password
-
-    const query = "SELECT * FROM OPD WHERE EMAIL = $1::TEXT AND PASS = $2::TEXT";
-    const params = [email,password]
-    try {
-        const results = await db.dbQuery(query , params)
-        if (results){
-            if(results.length > 0){
-                let accessToken = jwt.sign(
-                    {data : password},
-                    'opdSecret',
-                    )
-                req.session.authorization = {
-                    accessToken,
-                    email
-                }
-                res.status(200).send("Successfully Logged in");
-            }
-            else{
-                res.status(401).send("Invalid credentials. Kindly retry");
-            }
-        }
-    }
-    catch(error){
-        console.log(error)
-        res.status(500).send('Server side error')
-    }
-})
-
-//login doctor
-app.post('/auth/doctor' , async (req,res) => {
-    const email = req.body.email
-    const password = req.body.password
-
-    const query = "SELECT * FROM DOCTOR WHERE EMAIL = $1::TEXT AND PASS = $2::TEXT";
-    const params = [email,password]
-    try {
-        const results = await db.dbQuery(query , params)
-        if (results){
-            if(results.length > 0){
-                let accessToken = jwt.sign(
-                    {data : password},
-                    'doctorSecret',
-                    )
-                req.session.authorization = {
-                    accessToken,
-                    email
-                }
-                res.status(200).send("Successfully Logged in");
-            }
-            else{
-                res.status(401).send("Invalid credentials. Kindly retry");
-            }
-        }
-    }
-    catch(error){
-        console.log(error)
-        res.status(500).send('Server side error')
-    }
-    
-})
-
-//login patient
-app.post('/auth/patient' , async (req,res) => {
-    const email = req.body.email
-    const password = req.body.password
-
-    const query = "SELECT * FROM PATIENT WHERE EMAIL = $1::TEXT AND PASS = $2::TEXT";
-    const params = [email,password]
-    try {
-        const results = await db.dbQuery(query , params)
-        if (results){
-            if(results.length > 0){
-                let accessToken = jwt.sign(
-                    {data : password},
-                    'patientSecret',{expiresIn:60*60}
-                    )
-                req.session.authorization = {
-                    accessToken,
-                    email
-                }
-                res.status(200).send("Successfully Logged in");
-            }
-            else{
-                res.status(404).send("Invalid credentials. Kindly retry");
-            }
-        }
-    }
-    catch(error){
-        console.log(error)
-        res.status(500).send('Server side error')
-    }
-})
-
-app.use('/patient',patientRoute.patientRouter)
+app.use('/patient',patientRouter)
 app.use('/doctor' , doctorRouter)
+app.use('/auth' , authRouter)
 
 app.listen(PORT , () => {
     console.log('Server is listening on port 5000')
