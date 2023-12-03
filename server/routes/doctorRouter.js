@@ -278,4 +278,59 @@ doctorRouter.post('/' , async(req , res) => {
     }
 
 })
+/**
+ * @swagger
+ * /doctor/appointments:
+ *  get:
+*       summary : Get all appointments of doctor on given date
+*       tags : [doctor]
+*       parameters:
+*           - name : first_name
+*             in : query
+*             description : First name of doctor
+*             required : true
+*             type : string
+*           - name : last_name
+*             in : query
+*             description : Last name of the doctor
+*             required : true
+*             type : string
+*           - name : date
+*             in : query
+*             description : Date of appointment in format YYYY-MM-DD
+*             required : true
+*             type : string
+*       responses : 
+*           '200':
+*               description : Record retrieved successfully
+*           '404':
+*               description : Invalid details of doctor
+*           '403':
+*               description : Doctor not logged in
+ *
+ */
+doctorRouter.get('/appointments' , async (req , res) => {
+    const first_name = req.query.first_name
+    const last_name = req.query.last_name
+    const date = req.query.date
+
+    if(!first_name || !last_name || !date){
+        res.status(404).send('Invalid query string')
+        return
+    }
+
+
+    const query = "SELECT P.FIRST_NAME,P.LAST_NAME,A.PRESCRIPTION FROM APPOINTMENT A, DOCTOR D, PATIENT P WHERE A.APPOINTMENT_DATE = $1 AND A.DOCTOR_ID = D.ID AND D.FIRST_NAME = $2::TEXT AND D.LAST_NAME = $3::TEXT AND A.PATIENT_ID = P.PATIENT_ID";
+    const params = [date , first_name , last_name]
+
+    const results = await db.dbQuery(query , params)
+
+    if(results){
+        res.status(200).send(results)
+    }
+    else{
+        res.status(400).send('Records not found');
+    }
+})
+
 module.exports = {doctorRouter}
