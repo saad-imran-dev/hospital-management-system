@@ -4,7 +4,7 @@ import PhoneMask from '../RegisterPatient/PhoneMask'
 import CNICMask from '../RegisterPatient/CNICMask'
 
 function PatientInfo({ patient, handleChange }) {
-    const [edit, setEdit] = useState(false)
+    const [edit, setEdit] = useState(true)
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5, my: 'auto', width: '100%' }}>
@@ -107,11 +107,11 @@ function PatientInfo({ patient, handleChange }) {
                 disabled={!edit}
             />
 
-            {!edit ?
+            {/* {!edit ?
                 <Button variant='contained' sx={{ mr: 'auto' }} onClick={() => setEdit(prevEdit => !prevEdit)}>Edit</Button>
                 :
                 <Button variant='contained' sx={{ mr: 'auto' }} onClick={() => setEdit(prevEdit => !prevEdit)}>Save</Button>
-            }
+            } */}
         </Box>
     )
 }

@@ -22,18 +22,33 @@ function RegisterPatient() {
     }
 
     function handleRegister() {
-        console.log(patient)
-        setPatient(prevPatient => ({
-            ...prevPatient,
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-            cnic: '',
-            gender: '',
-            dob: '',
-            age: '',
-        }))
+        fetch('http://localhost:5000/patient', {
+            method: "post",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "first_name": patient.firstName,
+                "last_name": patient.lastName,
+                "contact": patient.phone,
+                "cnic": patient.cnic
+            })
+        }).then(data => {
+            if (data.status == 200) {
+                setPatient(prevPatient => ({
+                    ...prevPatient,
+                    firstName: '',
+                    lastName: '',
+                    email: '',
+                    phone: '',
+                    cnic: '',
+                    gender: '',
+                    dob: '',
+                    age: '',
+                }))
+                alert('Patient successfully registered')
+            } else {
+                alert('Error occured while registering patient')
+            }
+        }).catch(() => alert('Error occured while registering patient'))
     }
 
     return (

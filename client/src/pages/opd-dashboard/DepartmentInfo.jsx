@@ -11,7 +11,7 @@ function DepartmentInfo({ props }) {
             <Divider sx={{ my: 2.5 }} />
 
 
-            <DoctorTable />
+            <DoctorTable name={name} />
         </DashboardOpd>
     )
 }

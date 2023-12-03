@@ -23,7 +23,7 @@ function Sidebar() {
 
             <Divider sx={{ m: 3, width: '100%' }} />
 
-            <Link to={'/opd/'} style={{ width: '100%', color: 'black' }}>
+            <Link to={'/opd/register'} style={{ width: '100%', color: 'black' }}>
                 <Button variant='contained' color='white' disableElevation sx={{ width: '100%' }}>Register Patient</Button>
             </Link>
 
