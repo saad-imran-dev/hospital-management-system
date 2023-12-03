@@ -1,5 +1,5 @@
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { openInputModal } from '../../../features/opdAppointment.slice';
 
@@ -20,8 +20,18 @@ const rows = [
     createData('15:30 - 16:00', true),
 ];
 
-function DoctorInfoTable() {
+function DoctorInfoTable({ doctor }) {
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/doctor/patients?first_name=${doctor.first_name}&last_name=${doctor.last_name}`)
+            .then(async data => {
+                if (data.status === 200) {
+                    const result = await data.json();
+                    console.log(result, "appointment")
+                }
+            })
+    }, [])
 
     return (
         <TableContainer component={Paper} sx={{ maxHeight: 450 }}>

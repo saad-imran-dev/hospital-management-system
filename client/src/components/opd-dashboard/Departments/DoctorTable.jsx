@@ -26,7 +26,7 @@ const rows = [
     createData(102763, 'Gingerbread', true, '9:00 to 5:00'),
 ];
 
-function DoctorTable({name}) {
+function DoctorTable({ name }) {
     const navigate = useNavigate()
 
     const [doctors, setDoctors] = useState([])
@@ -38,7 +38,7 @@ function DoctorTable({name}) {
                 console.log(result)
                 let docs = []
                 result.map(item => {
-                    if(item.dept_name == name){
+                    if (item.dept_name == name) {
                         docs.push({ ...item, available: true, timing: '9:00am to 5:00pm' })
                     }
                 })
@@ -63,7 +63,7 @@ function DoctorTable({name}) {
                             key={row.id}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 }, cursor: 'pointer' }}
                             hover
-                            onDoubleClick={() => navigate(`/opd/doctor/${row.id}`)}
+                            onDoubleClick={() => navigate(`/opd/doctor/${row.id}`, { state: row })}
                         >
                             <TableCell component="th" scope="row" sx={{ pl: 3 }}>
                                 {row.first_name}{' '}{row.last_name}

@@ -3,11 +3,11 @@ import { AppointmentModal, ConfirmModal, DashboardOpd, DoctorInfoTable } from '.
 import { Typography, Divider } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { closeInputModal, closeReviewModal, openReviewModal, setCNIC, setUserDetail } from '../../features/opdAppointment.slice'
+import { useLocation } from 'react-router-dom'
 
 function Doctor() {
   const dispatch = useDispatch()
   const appointment = useSelector(state => state.opd_appointment)
-  const name = 'Muhammad Saad'
 
   function handleSubmit() {
     const txt = appointment.input.cnic.split('-')
@@ -16,7 +16,7 @@ function Doctor() {
         name: 'Muhammad Saad',
         email: 'saad.imran.vohra@gmail.com',
         phone: '0330-2459543',
-        doctor: name
+        doctor: params.state.first_name + ' ' + params.state.last_name
       }))
     }
   }
@@ -25,12 +25,14 @@ function Doctor() {
     dispatch(closeReviewModal())
   }
 
+  const params = useLocation()
+
   return (
     <DashboardOpd>
-      <Typography variant='h3' sx={{ textTransform: 'capitalize' }}>{name}</Typography>
+      <Typography variant='h3' sx={{ textTransform: 'capitalize' }}>{params.state.first_name + ' ' + params.state.last_name}</Typography>
       <Divider sx={{ my: 2.5 }} />
 
-      <DoctorInfoTable />
+      <DoctorInfoTable doctor={params.state} />
       <AppointmentModal handleSubmit={handleSubmit} />
       <ConfirmModal handleConfirm={handleConfirm} />
     </DashboardOpd>
