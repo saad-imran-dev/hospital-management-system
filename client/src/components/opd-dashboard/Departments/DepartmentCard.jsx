@@ -20,14 +20,14 @@ function DepartmentCard({ department, doctors, available }) {
                             {department}
                         </Typography>
 
-                        <Stack direction='row' spacing={2.5} >
+                        {/* <Stack direction='row' spacing={2.5} >
                             <Typography variant="body2" color="text.secondary">
                                 Doctors: {doctors}
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
                                 Available: {available}
                             </Typography>
-                        </Stack>
+                        </Stack> */}
                     </CardContent>
                 </CardActionArea>
             </Card>

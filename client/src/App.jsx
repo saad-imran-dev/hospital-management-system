@@ -20,7 +20,8 @@ import {
   About,
   Doctorpage,
   PatientSignUp,
-  DoctorLogin
+  DoctorLogin,
+  LoginOpd
 } from './pages'
 
 function App() {
@@ -31,7 +32,8 @@ function App() {
         <Route path='/Aboutus' element={<About />} />
         <Route path='/doctorpage' element={<Doctorpage />} />
         <Route path='/emp/login' element={<LoginEmployee />} />
-        <Route path='/opd/' element={<RegisterPatient />} />
+        <Route path='/opd/' element={<LoginOpd />} />
+        <Route path='/opd/register' element={<RegisterPatient />} />
         <Route path='/opd/department/' element={<Departments />} />
         <Route path='/opd/department/:name' element={<DepartmentInfo />} />
         <Route path='/opd/doctor/:id' element={<DoctorInfo />} />

@@ -2,15 +2,18 @@ import { Box, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import PatientInfo from '../../components/opd-dashboard/Patient/PatientInfo'
 import { DashboardOpd } from '../../components'
+import { useLocation, useParams } from 'react-router-dom'
 
-function Patient() {
+function Patient({ route }) {
+    const params = useLocation()
+
     const [patient, setPatient] = useState({
-        firstName: 'Muhammad',
-        lastName: 'Saad',
-        email: 'saad@gmail.com',
-        phone: '0333-245-9543',
-        cnic: '42101-1996265-5',
-        gender: 'male',
+        firstName: params.state.first_name,
+        lastName: params.state.last_name,
+        email: params.state.email,
+        phone: params.state.contact,
+        cnic: params.state.cnic,
+        gender: '',
         dob: '',
         age: 22,
     })
@@ -29,7 +32,7 @@ function Patient() {
                 <Typography variant='h3' mr={'auto'}>Patient Information</Typography>
                 <PatientInfo patient={patient} handleChange={(e) => setPatient(prevPatient => ({
                     ...prevPatient,
-                    [e.target.name]: e.target.value
+                    // [e.target.name]: e.target.value
                 }))} />
             </Box>
         </DashboardOpd>

@@ -19,6 +19,8 @@ import Doctordashboard from './doctor-dashboard/board';
 import Writeprescription from './doctor-dashboard/writePrescript';
 import Seepatienthistory from './doctor-dashboard/see_pat_history';
 import DoctorLogin from './doctor-dashboard/doc-login';
+import LoginOpd from './opd-dashboard/Login'
+
 export {
     DoctorLogin,
     About,
@@ -41,4 +43,5 @@ export {
     Patientprescript,
     Patienthistory,
     PatientSignUp,
+    LoginOpd,
 }

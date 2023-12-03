@@ -5,7 +5,7 @@ const session = require('express-session')
 const cors = require('cors')
 const swaggerUI = require("swagger-ui-express")
 const swaggerJSDoc = require("swagger-jsdoc")
-const jwt = require('jsonwebtoken')
+
 //importing routes
 const { patientRouter } = require('./routes/patientRouter.js')
 const { doctorRouter } = require('./routes/doctorRouter.js')
@@ -22,7 +22,7 @@ const options = {
         },
         servers : [
             {
-                url : "http://locahost::5000"
+                url : "http://localhost:5000"
             }
         ]
     },

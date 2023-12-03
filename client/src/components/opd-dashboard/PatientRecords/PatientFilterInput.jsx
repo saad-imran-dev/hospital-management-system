@@ -34,13 +34,13 @@ function PatientFilterInput({ filter, handleChange }) {
                     onChange={handleChange}
                     sx={{ p: 0.5, border: '1px solid rgba(0,0,0,0.2)', borderRadius: 1, '&:focus': { border: '1px solid black' } }}
                 />
-                <InputBase
+                {/* <InputBase
                     name='age'
                     placeholder='Filter by age' type='number'
                     value={filter.age}
                     onChange={handleChange}
                     sx={{ p: 0.5, border: '1px solid rgba(0,0,0,0.2)', borderRadius: 1, '&:focus': { border: '1px solid black' } }}
-                />
+                /> */}
             </Box>
         </Box>
     )
