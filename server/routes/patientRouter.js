@@ -154,8 +154,8 @@ patientRouter.post('/appointment/' , async (req,res) => {
         else{
             if(req.body.date){
                 
-                query = "INSERT INTO APPOINTMENT (patient_id , appointment_date , prescription , doctor_id) VALUES ($1::int,$2::DATE,'',$3::int)"
-                params = [patientId[0].patient_id , req.body.date , doctorID[0].id]
+                query = "INSERT INTO APPOINTMENT (patient_id , appointment_date , prescription , doctor_id , time) VALUES ($1::int,$2::DATE,'',$3::int,$4::TEXT)"
+                params = [patientId[0].patient_id , req.body.date , doctorID[0].id , req.body.time]
                 const status = await db.dbQuery(query , params)
 
                 if(status){
@@ -268,8 +268,8 @@ patientRouter.post('/' , async(req , res) => {
         return
     }
 
-    query = "INSERT INTO PATIENT (FIRST_NAME, LAST_NAME , CONTACT, CNIC) VALUES ($1::TEXT,$2::TEXT,$3::TEXT,$4::TEXT)";
-    params = [body.first_name , body.last_name, body.contact, body.cnic]
+    query = "INSERT INTO PATIENT (FIRST_NAME, LAST_NAME , CONTACT, CNIC, EMAIL, PASSWORD) VALUES ($1::TEXT,$2::TEXT,$3::TEXT,$4::TEXT,$5::TEXT,'pass')";
+    params = [body.first_name , body.last_name, body.contact, body.cnic , body.email]
 
     results = await db.dbQuery(query , params)
 
