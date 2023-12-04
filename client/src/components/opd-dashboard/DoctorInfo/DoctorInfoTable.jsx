@@ -1,37 +1,56 @@
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { openInputModal } from '../../../features/opdAppointment.slice';
 
-function createData(timing, booked) {
-    return { timing, booked };
+function createData(timing) {
+    return { timing, booked: false };
 }
 
-const rows = [
-    createData('10:30 - 11:00', false),
-    createData('11:00 - 11:30', true),
-    createData('11:30 - 12:00', false),
-    createData('12:00 - 12:30', false),
-    createData('13:00 - 13:30', true),
-    createData('13:30 - 14:00', false),
-    createData('14:00 - 14:30', true),
-    createData('14:30 - 15:00', false),
-    createData('15:00 - 15:30', true),
-    createData('15:30 - 16:00', true),
-];
-
-function DoctorInfoTable({ doctor }) {
+function DoctorInfoTable({ doctor, update }) {
     const dispatch = useDispatch()
+    const date = new Date()
+    const [data, setData] = useState([
+        createData('10:00 - 10:30'),
+        createData('10:30 - 11:00'),
+        createData('11:00 - 11:30'),
+        createData('11:30 - 12:00'),
+        createData('12:00 - 12:30'),
+        createData('13:00 - 13:30'),
+        createData('13:30 - 14:00'),
+        createData('14:00 - 14:30'),
+        createData('14:30 - 15:00'),
+        createData('15:00 - 15:30'),
+        createData('15:30 - 16:00'),
+    ])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/doctor/patients?first_name=${doctor.first_name}&last_name=${doctor.last_name}`)
-            .then(async data => {
-                if (data.status === 200) {
-                    const result = await data.json();
-                    console.log(result, "appointment")
+        fetch(`http://localhost:5000/doctor/appointments?first_name=${doctor.first_name}&last_name=${doctor.last_name}&date=${date.toISOString().split('T')[0]}`)
+            .then(async res => {
+                if (res.status === 200) {
+                    const result = await res.json();
+                    let rows = data
+                    
+                    result.map((item) => {
+                        for(let i=0 ; i<rows.length ; i++){
+                            if(rows[i].timing === item.time){
+                                rows[i].booked = true
+                            }
+                        }
+                    })
+
+                    setData(prevData => {
+                        return prevData.map((item, index) => {
+                            if(rows[index].booked){
+                                item.booked = true
+                            }
+
+                            return item
+                        })
+                    })
                 }
             })
-    }, [])
+    }, [update])
 
     return (
         <TableContainer component={Paper} sx={{ maxHeight: 450 }}>
@@ -44,7 +63,7 @@ function DoctorInfoTable({ doctor }) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
+                    {data.map((row) => (
                         <TableRow
                             key={row.timing}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 }, cursor: 'pointer' }}

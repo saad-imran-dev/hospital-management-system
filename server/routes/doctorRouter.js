@@ -320,7 +320,7 @@ doctorRouter.get('/appointments' , async (req , res) => {
     }
 
 
-    const query = "SELECT P.FIRST_NAME,P.LAST_NAME,A.PRESCRIPTION FROM APPOINTMENT A, DOCTOR D, PATIENT P WHERE A.APPOINTMENT_DATE = $1 AND A.DOCTOR_ID = D.ID AND D.FIRST_NAME = $2::TEXT AND D.LAST_NAME = $3::TEXT AND A.PATIENT_ID = P.PATIENT_ID";
+    const query = "SELECT P.FIRST_NAME,P.LAST_NAME,A.TIME FROM APPOINTMENT A, DOCTOR D, PATIENT P WHERE A.APPOINTMENT_DATE = $1 AND A.DOCTOR_ID = D.ID AND D.FIRST_NAME = $2::TEXT AND D.LAST_NAME = $3::TEXT AND A.PATIENT_ID = P.PATIENT_ID";
     const params = [date , first_name , last_name]
 
     const results = await db.dbQuery(query , params)

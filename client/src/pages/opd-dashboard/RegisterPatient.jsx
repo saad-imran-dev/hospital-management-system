@@ -22,14 +22,16 @@ function RegisterPatient() {
     }
 
     function handleRegister() {
+        // alert(patient.cnic.replace('-', '').replace('-', '').slice(0, 11))
         fetch('http://localhost:5000/patient', {
             method: "post",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 "first_name": patient.firstName,
                 "last_name": patient.lastName,
-                "contact": patient.phone,
-                "cnic": patient.cnic
+                "contact": patient.phone.replace('-', ''),
+                "cnic": patient.cnic.replace('-', '').replace('-', ''),
+                "email": patient.email,
             })
         }).then(data => {
             if (data.status == 200) {

@@ -19,6 +19,7 @@ const WritePrescription = () => {
 
   const handleSubmit = () => {
     // Perform actions upon form submission or data storage
+    fetch('')
   };
 
   return (

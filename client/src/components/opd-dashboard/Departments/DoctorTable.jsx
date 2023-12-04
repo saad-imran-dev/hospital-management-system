@@ -63,7 +63,7 @@ function DoctorTable({ name }) {
                             key={row.id}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 }, cursor: 'pointer' }}
                             hover
-                            onDoubleClick={() => navigate(`/opd/doctor/${row.id}`, { state: row })}
+                            onDoubleClick={() => navigate(`/opd/doctor/${row.id}`, { state: { ...row, name } })}
                         >
                             <TableCell component="th" scope="row" sx={{ pl: 3 }}>
                                 {row.first_name}{' '}{row.last_name}
